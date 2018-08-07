@@ -31,23 +31,32 @@ function displayFullResults(totalNumberOfRoles) {
 }
 
 function displayIndividualResult(diceRoll, numberOfTimes, totalNumberOfRoles) {
-    let workingDiv = document.createElement("div");
+    let workingDiv = document.createElement("div")
+    workingDiv.classList.add('diceReturnValue');
+    // setIndividulResultFlex(workingDiv);
     let paragraph = document.createElement("p");
-    // paragraph.style.display = "inline-block";
     let text = document.createTextNode(diceRoll + ": " + numberOfTimes);
     paragraph.appendChild(text);
-    workingDiv.appendChild(paragraph);
     workingDiv.appendChild(getDisplayBar(numberOfTimes, totalNumberOfRoles));
+    workingDiv.appendChild(paragraph);
     appendToPage(workingDiv);   
 }
+
+// function setIndividualResultFlex(div) {
+//     div.style.display = 'flex';
+    
+//     div.style.se = 'column';
+    
+// }
 
 function getDisplayBar(countOfThisResult, totalNumberOfRoles) {
     let workingDiv = document.createElement("div");
     workingDiv.style.backgroundColor = "blue";
-    workingDiv.style.height = '20px';
+    workingDiv.style.width = '20px';
     // debugger;
     // workingDiv.style.width = (.8 / totalNumberOfRoles * countOfThisResult) * 100;
-    workingDiv.style.width = (80 * countOfThisResult / totalNumberOfRoles) + '%';
+    const magnificationFactor = 4; // meaningless number to make graph prettier
+    workingDiv.style.height = ((80 * countOfThisResult / totalNumberOfRoles) * magnificationFactor) + '%';
     workingDiv.style.display = 'inline-block';
     return workingDiv;
 }

@@ -1,0 +1,13 @@
+.diceReturnValue {
+    display: inline-flex;
+    flex-direction: column;
+    margin: 15px;
+    text-align: center;
+    height: 300px;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+/* .diceReturnValue p {
+    text-align: center;
+} */
